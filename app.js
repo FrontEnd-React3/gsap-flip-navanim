@@ -9,11 +9,13 @@ links.forEach(link => {
       gsap.to(link, { color: "#385ae0" });
     }
     const state = Flip.getState(activeNav);
+
     link.appendChild(activeNav);
-    Flip.from(state, {
+    Flip.from(state,  {
       duration: 0.5,
       absolute: true,
       ease: "elastic.out(1,0.5)",
+      
     })
   });
 });
@@ -38,3 +40,5 @@ cards.forEach((card, index) => {
     });
   });
 });
+
+//https://codepen.io/GreenSock/pen/ExyzePZ
