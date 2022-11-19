@@ -19,11 +19,11 @@ links.forEach(link => {
 });
 
 const cards = document.querySelectorAll(".card");
-cards.forEach(card => {
+cards.forEach((card, index) => {
   card.addEventListener("click", () => {
     const state = Flip.getState(cards);
     const isCardActive = card.classList.contains("active");
-    card.forEach((otherCard, otherIdx) => {
+    cards.forEach((otherCard, otherIdx) => {
       otherCard.classList.remove("active");
       otherCard.classList.remove("is-inactive");
       if (!isCardActive && index !== otherIdx) {
@@ -32,9 +32,9 @@ cards.forEach(card => {
     })
     if (!isCardActive) card.classList.add("active");
     Flip.from(state, {
-      duration: 1.5,
+      duration: 4,
       absolute: true,
-      ease: "expo.out",
-    }
+      ease: "elastic.out(1,0.5)"
+    });
   });
 });
